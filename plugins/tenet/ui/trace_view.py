@@ -953,7 +953,7 @@ class TraceBar(QtWidgets.QWidget):
                 painter.setBrush(self.pctx.palette.trace_unmapped)
 
             y = self._idx2pos(idx)
-            painter.drawRect(x, y, w, h)
+            painter.drawRect(int(x), int(y), int(w), int(h))
 
     def _draw_highlights(self):
         """
@@ -1008,7 +1008,7 @@ class TraceBar(QtWidgets.QWidget):
                 y = self._idx2pos(idx) + self._cell_border
 
                 # draw cell body
-                painter.drawRect(viz_x, y, viz_w, h)
+                painter.drawRect(int(viz_x), int(y), int(viz_w), int(h))
 
     def _draw_highlights_trace(self, painter):
         """
@@ -1172,7 +1172,7 @@ class TraceBar(QtWidgets.QWidget):
         h = end_y - start_y
 
         # draw the screen door / selection rect
-        self._painter_selection.drawRect(x, y, w, h)
+        self._painter_selection.drawRect(int(x), int(y), int(w), int(h))
 
     def _draw_border(self):
         """
@@ -1200,7 +1200,7 @@ class TraceBar(QtWidgets.QWidget):
         h = wid_h - self._trace_border
 
         # draw the border around the tracebar using a blank rect + stroke (border)
-        self._painter_border.drawRect(0, 0, w, h)
+        self._painter_border.drawRect(0, 0, int(w), int(h))
 
     #----------------------------------------------------------------------
     # Callbacks
